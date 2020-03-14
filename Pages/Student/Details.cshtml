@@ -1,0 +1,35 @@
+@page
+@using Pages.Student
+@model Details
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].GPA)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.item.GPA)
+            </td>
+        </tr>
+    </tbody>
+</table>
