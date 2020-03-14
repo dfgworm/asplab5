@@ -1,0 +1,18 @@
+@page
+@using Pages.Student
+@model Edit
+
+    <form method="post" asp-route-id="@Model.current_id">
+        First Name:
+        <input type="text"
+               name="FirstName"
+               value="@Html.DisplayFor(model => model.item.FirstName)" />
+        <input type="text"
+               name="LastName"
+               value="@Html.DisplayFor(model => model.item.LastName)" />
+        <input type="number"
+               name="GPA"
+               step="any"
+               value="@Html.DisplayFor(model => model.item.GPA)" />
+        <input type="submit" value="Commit" />
+    </form>

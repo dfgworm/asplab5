@@ -2,41 +2,57 @@
 @using Pages.Student
 @model IndexModel
 
-<h1>Index page</h1>
+<h1>Students: @Model.msg</h1>
 
+<form method="post">
+    First Name:
+    <input type="text" name="NameFilter" value="" />
+    Last Name:
+    <input type="text" name="LastNameFilter" value="" />
+    Less/Greater:
+    <input type="number" name="filter" value="0" step="any" />
+    <select id="filtType" name="filtType">
+        <option value='1'>Greater</option>
+        <option value='0'>Less</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Students[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Students[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Students[0].GPA)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Students) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GPA)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    GPA
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Students)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GPA)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
 </table>
+<p><a href="/Student/Create">Add New</a></p>
